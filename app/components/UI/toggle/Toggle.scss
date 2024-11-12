@@ -38,6 +38,9 @@
     color: #959597;
     padding: 0 0 8px 0;
     width: 100%;
+    &:hover:after {
+      transform: scale(0, 1);
+    }
   }
   .toggle--active {
     &:after, &:hover:after, &:hover {

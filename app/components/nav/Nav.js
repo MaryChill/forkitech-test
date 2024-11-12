@@ -1,15 +1,18 @@
 'use client'
 import Link from "next/link";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Toggle from "@/components/UI/toggle/Toggle";
 
 export default function Nav() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [menu, setMenu] = useState(false)
     const [notice, setNotice] = useState(false)
-    setTimeout(() => {
-        setNotice(true)
-    }, 10000)
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setNotice(true);
+        }, 1000)
+        return () => clearTimeout(timerId)
+    }, [activeIndex, menu]);
     const navClass = ["nav__white"]
     const noticeClass = ['nav__notice']
     function handleToggle(index) {
