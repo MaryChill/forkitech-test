@@ -1,0 +1,47 @@
+.toggle {
+  padding: 13px 0;
+  color: #7C8792;
+  cursor: pointer;
+  display: block;
+  transition: color 0.4s;
+  position: relative;
+  &:hover {
+    color: #4b525d;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    transform: scale(0, 1);
+    transition: transform 0.4s;
+    background: #4b525d;
+    transform-origin: right top;
+  }
+  &:hover:after {
+    transform: scale(1, 1);
+    transform-origin: left top;
+  }
+}
+.toggle--active {
+  color: #1F2229;
+  &:after, &:hover:after, &:hover {
+    transform: scale(1, 1);
+    color: #1F2229;
+  }
+}
+@media (max-width: 991px) {
+  .toggle {
+    font-weight: 700;
+    color: #959597;
+    padding: 0 0 8px 0;
+    width: 100%;
+  }
+  .toggle--active {
+    &:after, &:hover:after, &:hover {
+      transform: scale(0, 1);
+    }
+  }
+}
